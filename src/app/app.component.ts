@@ -20,9 +20,11 @@ export class AppComponent {
   jsonData: Array<any> = [];
   profileForm = new FormGroup({
     label: new FormControl(''),
+    color: new FormControl(''),
    
   });
   downloadJsonHref: any;
+console: any;
   constructor(private fb:FormBuilder,private sanitizer: DomSanitizer) {
     this.jsonData.push(this.text)
     this.profileForm = this.fb.group({
@@ -41,6 +43,7 @@ export class AppComponent {
  
   
   addAnnotation(label: string, color: string): void {
+    
     if (!this.ngxAnnotateText) {
       return;
     }

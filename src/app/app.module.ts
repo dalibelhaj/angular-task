@@ -5,6 +5,7 @@ import { AppComponent } from './app.component';
 import { NgxAnnotateTextModule } from 'ngx-annotate-text';
 import { FormsModule } from '@angular/forms';
 import {  ReactiveFormsModule } from '@angular/forms';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 
 @NgModule({
@@ -16,6 +17,7 @@ import {  ReactiveFormsModule } from '@angular/forms';
     NgxAnnotateTextModule,
     FormsModule,
     ReactiveFormsModule,
+    BrowserAnimationsModule,
     
   ],
   providers: [],

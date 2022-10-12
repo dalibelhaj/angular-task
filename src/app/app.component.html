@@ -19,11 +19,12 @@
 
 
 <div class="mycustom-radios">
-  <div class="mycustom-radios__item" *ngFor="let data of labelData">
+  <div class="mycustom-radios__item me-4 " *ngFor="let data of labelData">
     <button
+    class="btn color-white"
     display="inline-flex"
     type="button"
-    class="btn btn-danger me-2"
+    [style.background-color]="data.color"
     (click)="addAnnotation(data.label, data.color)"
   > 
     {{data.label}}
