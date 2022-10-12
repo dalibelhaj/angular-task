@@ -1,0 +1,64 @@
+<div style="margin-left: 30px;">
+    <h1 class="mb-5 display-4">Test App Made By Med Ali Belhaj</h1>
+
+
+    <div class="alert alert-primary" role="alert">
+      How to use : First, you insert the name  of the label, then the color (example: name ="diploma", color ="red") and press add, then  select the text and choose the  label.
+      <br>ps :the color will change when you select the text.
+      <br>color exemple : red , green , black , blue .....
+    </div>
+
+<div>
+  <form [formGroup]="profileForm" (ngSubmit)="onSubmit()">
+    <input  type="text" class="form-control" placeholder="label name"   id="inputstyle"  formControlName="label">
+    <input  type="text" class="form-control" placeholder="color"   id="inputstyle"  formControlName="color">
+  </form>
+  </div>
+<button class="button-4" (click)="onSubmit()">Add</button>
+
+
+
+<div class="mycustom-radios">
+  <div class="mycustom-radios__item" *ngFor="let data of labelData">
+    <button
+    display="inline-flex"
+    type="button"
+    class="btn btn-danger me-2"
+    (click)="addAnnotation(data.label, data.color)"
+  > 
+    {{data.label}}
+  </button>
+  </div>
+</div>
+
+<div class="row mt-5">
+  <div class="col-12">
+
+
+    <ngx-annotate-text
+      [(annotations)]="annotations"
+      [removable]="true"
+      [text]="text"
+      annotationClass="my-annotation"
+      #annotateText
+    >
+    </ngx-annotate-text>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-12">
+    <h2 class="mb-3 display-5">Annotations</h2>
+
+    <ul class="list-group">
+      <li class="list-group-item" *ngFor="let a of annotations">
+        start: {{ a.startIndex }}, end: {{ a.endIndex }}, text: "{{ a.text }}",
+        label: {{ a.label }}
+      </li>
+    </ul>
+  </div>
+</div>
+</div>
+
+
+<button class="button-18" (click)="exportTojson()">Download Json Format</button>
